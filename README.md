@@ -24,28 +24,20 @@ This project implements a solution to the tube puzzle problem using the A* searc
 ### Example Usage
 
 ```python
-init = [
-    ['c3', 'c2', 'c2', 'c1'],
-    ['c3', 'c1', 'c3', 'c2'],
-    ['c2', 'c3', 'c2', 'c3'],
-    ['c1', 'c1', 'c1', 'c1'],
-    []
-]
+empty = 2
+full = 8
+size = 8
+colors = 8
+init = [[1,3,5,4,4,7,6,1],[2,2,0,0,4,3,6,7],
+        [2,1,1,4,5,6,0,2],[0,6,6,5,4,7,7,3],
+        [3,4,1,0,5,7,4,4],[7,6,2,2,3,1,0,0],
+        [7,3,3,1,2,5,5,6],[7,6,5,5,3,2,1,0],[],[]]
 
-# Convert the initial list to the format expected by the Tube class
-adjust_tubes = [group_colors(tube) for tube in init]
+adjust_tubes = convert_init_list(init)
+tubes = init_tubes(adjust_tubes, 8) //adding the size for each tube
+moves, iterations = a_star_solve(tubes)
 
-# Initialize the tubes with the adjusted data and a capacity of 4
-tubes = init_tubes(adjust_tubes, 4)
 
-# Solve the puzzle using A* search
-solution_path, iterations = a_star_solve(tubes)
-
-# Output the solution path
-print("Solution Path:")
-for move in solution_path:
-    print(move)
-print("Iterations: ", iterations)
 ```
 
 ### Code Structure
@@ -67,14 +59,7 @@ print("Iterations: ", iterations)
 - The code prints the current state, cost, frontier size, visited size, and iteration count during each step of the A* search.
 - The solution path and number of iterations are printed after the puzzle is solved.
 
-## License
 
-This project is licensed under the MIT License.
+### For more usage example look in file "liquid puzzle test examples"
 
-## Acknowledgments
 
-Inspired by common puzzle-solving algorithms and the desire to apply A* search to a real-world problem.
-
----
-
-For any issues or questions, please open an issue in the repository or contact the author.
