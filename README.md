@@ -60,6 +60,6 @@ moves, iterations = a_star_solve(tubes)
 - The solution path and number of iterations are printed after the puzzle is solved.
 
 
-### For more usage example look in file "liquid puzzle test examples"
+#### For more usage example look in file "liquid puzzle test examples"
 
 
